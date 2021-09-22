@@ -1,0 +1,47 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "simple weather app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "dev:react": "webpack --config ./webpack.config.js --mode development -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexTing1/weatherapp.git"
+  },
+  "author": "alex ting",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexTing1/weatherapp/issues"
+  },
+  "homepage": "https://github.com/AlexTing1/weatherapp#readme",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "babel": "^6.23.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12",
+    "path": "^0.12.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.26.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1"
+  }
+}
