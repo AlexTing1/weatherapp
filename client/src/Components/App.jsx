@@ -4,15 +4,15 @@ import axios from 'axios';
 function App() {
 
   useEffect(() => {
-    axios.get('/weather/Seattle')
-      .then((resp) => {
-        console.log(resp);
-      });
+    fetch('http://localhost:3001/weather/seattle')
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(`could not fetch data: ${error}`))
   });
 
   return (
     <div>
-      hello world
+      hello world!
     </div>
   );
 }
