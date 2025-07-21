@@ -1,19 +1,39 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import CityWeather from './CityWeather';
+
+const cities = [
+  "Seattle",
+  "Los Angeles",
+  "New York"
+];
 
 function App() {
+  const [citiesWeather, setCitiesWeather] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/weather/seattle')
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(`could not fetch data: ${error}`))
-  });
+    Promise.all(
+      cities.map((city) => 
+        fetch(`http://localhost:3001/weather/${city}`)
+        .then((resp) => resp.json())
+        .then((data) => ({ city, data }))
+      )
+    ).then((result) => {
+      setCitiesWeather(result)
+    })
+  }, []);
+
+  useEffect(() => {
+    console.log(citiesWeather)
+  }, [citiesWeather]);
 
   return (
-    <div>
-      hello world!
-    </div>
+    <ul>
+      {citiesWeather.map((city) => (
+        <li>
+          <CityWeather city={city.city} temperature={city.data.current.temp_f} wind={city.data.current.wind_mph} />
+        </li>
+      ))}
+    </ul>
   );
 }
 
