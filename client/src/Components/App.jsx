@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     Promise.all(
       cities.map((city) => 
-        fetch(`http://localhost:3001/weather/${city}`)
+        fetch(`http://localhost:8000/weather/${city}`)
         .then((resp) => resp.json())
         .then((data) => {
           const weatherData = {

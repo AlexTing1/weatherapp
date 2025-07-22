@@ -3,7 +3,7 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3001;
+const PORT = 8000;
 const api = 'bbdf1643ef55412b91704839252107';
 
 app.use(cors());

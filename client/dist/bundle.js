@@ -25,7 +25,7 @@ function App() {
   const [temperatureText, setTemperatureText] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
   const [windText, setWindText] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    Promise.all(cities.map(city => fetch(`http://localhost:3001/weather/${city}`).then(resp => resp.json()).then(data => {
+    Promise.all(cities.map(city => fetch(`http://localhost:8000/weather/${city}`).then(resp => resp.json()).then(data => {
       const weatherData = {
         city: city,
         temperature: data.current.temp_f,
