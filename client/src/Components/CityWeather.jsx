@@ -3,10 +3,14 @@ import styles from '../styles/CityWeather.module.css';
 
 function CityWeather({ temperature, city, wind }) {
     return (
-        <div>
-            <h1>{city}</h1>
-            <h2>{temperature}</h2>
-            <h2>{wind}</h2>
+        <div className={styles.weatherContainer}>
+            <div className={styles.city}>
+                <h1>{city}</h1>
+            </div>
+            <div className={styles.weatherDetails}>
+                <h2>{temperature} F</h2>
+                <h2>{wind} mph</h2>
+            </div>
         </div>
     );
 }

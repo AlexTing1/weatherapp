@@ -1,4 +1,19 @@
 .weatherContainer {
     display: flex;
-    
+    justify-content: space-between;
+    align-items: center;
+    width: 50em;
+    padding: 1em;
+    border-bottom: 1px solid #ccc;
+}
+
+.city {
+    flex: 1;
+    text-align: left;
+    margin-right: 20em;
+}
+
+.weatherDetails {
+    flex: 1;
+    text-align: right;
 }
