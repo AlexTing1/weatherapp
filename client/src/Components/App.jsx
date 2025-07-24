@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CityWeather from './CityWeather';
+import Dropdown from './DropDown';
 import styles from '../styles/App.module.css'
 
 const cities = [
@@ -13,6 +14,7 @@ function App() {
   const [cityText, setCityText] = useState('');
   const [temperatureText, setTemperatureText] = useState('');
   const [windText, setWindText] = useState('');
+  const [dropDownText, setDropDownText] = useState(['All']);
 
   useEffect(() => {
     Promise.all(
@@ -23,8 +25,10 @@ function App() {
           const weatherData = {
             city: city,
             temperature: data.current.temp_f,
-            wind: data.current.wind_mph
+            wind: data.current.wind_mph,
+            region: data.location.region
           }
+          setDropDownText([...dropDownText, weatherData.region]);
           return weatherData
         })
       )
@@ -67,6 +71,7 @@ function App() {
           <button type="submit">Submit</button>
         </form>
       </div>
+      <Dropdown />
       <ul className={styles.list}>
         {citiesWeather.map((city) => (
           <li>
